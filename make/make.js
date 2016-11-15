@@ -18,11 +18,11 @@ make.template = function (names, root, config) {
         if (err) {
           createFile(root + '/templates/' + name + '.liquid', '', function (err) {
             if (err) {
-              console.log('Шаблон уже существует');
+              console.log('Шаблон не может быть создан');
             }
           });
         }else{
-          console.log('Шаблон уже существует');
+          console.log('Шаблон не может быть создан');
         }
     })
   })
@@ -36,9 +36,8 @@ make.snippets = function (snippetsName, root, config) {
     name = _.trim(name)
     createFile(root + '/snippets/' + name + '.liquid', '', function (err) {
       if (err) {
-        console.log('Сниппет уже существует');
-      }
-      if (config.notstyle) {
+        console.log('Сниппет '+name+' не может быть создан');
+      }else{
         console.log('Сниппет '+name+' создан');
       }
     });
@@ -46,36 +45,42 @@ make.snippets = function (snippetsName, root, config) {
       createFile(root + '/media/' + config.scss.prefix + name + '.' + config.scss.extension, '', function (err) {
         if (err) {
           console.log('Файл стилей уже существует');
+
         }
       });
-
-      if (config.scss.import) {
-        var importFile = root + '/media/' + config.scss.importFile
-        var incSrting = config.scss.derective + ' ' + config.scss.prefix + name + ';\n';
-        fs.readFile(importFile,  (err, data) => {
-            if (err) {
-              createFile(importFile, incSrting, function (err) {
-                if (err) {
-                  console.log('Файл не может быть создан', importFile);
-                }
-              });
-            }else{
-              if (_.includes(data.toString('utf8'), incSrting)) {
-                return;
-              }else{
-                data += data + incSrting;
-                writeFile(importFile, data, function (err) {
-                  if (err) {
-                    console.log('Файл не может быть создан', importFile);
-                  }
-                });
-              }
-            }
-            console.log('Сниппет '+name+' создан');
-        })
-      }
     }
   })
+
+  if (!config.notstyle && config.scss.import) {
+    var importFile = root + '/media/' + config.scss.importFile
+    fs.readFile(importFile,  (err, data) => {
+        if (err) {
+          createFile(importFile, incSrting, function (err) {
+            if (err) {
+              console.log('Файл не может быть создан', importFile);
+            }
+          });
+        }else{
+          var newData = data.toString('utf8');
+          var mainInc = '';
+          _.forEach(snippetsName, function (name) {
+            var incSrting = config.scss.derective + ' ' + config.scss.prefix + name + ';\n';
+            var incName = config.scss.derective + ' ' + config.scss.prefix + name;
+            if (!_.includes(newData, incName)) {
+              mainInc += incSrting;
+            }
+          })
+
+          newData = newData + mainInc;
+
+          writeFile(importFile, newData, function (err) {
+            if (err) {
+              console.log('Файл не может быть создан', importFile);
+            }
+          });
+        }
+    })
+  }
 }
 
 module.exports = make;
