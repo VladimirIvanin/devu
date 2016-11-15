@@ -8,7 +8,7 @@
 
 > Команды запускать в корневой папке темы где ваши media, snippets, templates
 
-`devu --make --snippets logo,cart_widget,nav` - создаст сниппеты
+`devu --make --snippets logo,cart_widget,nav` - создаст сниппеты, `список обязательно без пробелов`
 
 `devu --make --snippets logo,cart_widget,nav --notstyle` - создаст сниппеты без стилей
 

@@ -22,7 +22,7 @@ make.template = function (names, root, config) {
             }
           });
         }else{
-          console.log('Шаблон не может быть создан');
+          console.log('Шаблон '+ name +' уже создан');
         }
     })
   })
@@ -33,19 +33,25 @@ make.snippets = function (snippetsName, root, config) {
     return;
   }
   _.forEach(snippetsName, function (name) {
-    name = _.trim(name)
-    createFile(root + '/snippets/' + name + '.liquid', '', function (err) {
+    name = _.trim(name);
+    var snippetPath = root + '/snippets/' + name + '.liquid';
+    fs.readFile(snippetPath,  (err, data) => {
       if (err) {
-        console.log('Сниппет '+name+' не может быть создан');
+        createFile(snippetPath, '', function (err) {
+          if (err) {
+            console.log('Сниппет '+name+' не может быть создан');
+          }else{
+            console.log('Сниппет '+name+' создан');
+          }
+        });
       }else{
-        console.log('Сниппет '+name+' создан');
+        console.log('Сниппет '+name+' уже создан');
       }
     });
     if (!config.notstyle) {
       createFile(root + '/media/' + config.scss.prefix + name + '.' + config.scss.extension, '', function (err) {
         if (err) {
           console.log('Файл стилей уже существует');
-
         }
       });
     }
@@ -67,7 +73,7 @@ make.snippets = function (snippetsName, root, config) {
           })
 
           newData = newData + mainInc;
-          createFile(importFile, incSrting, function (err) {
+          createFile(importFile, newData, function (err) {
             if (err) {
               console.log('Файл не может быть создан', importFile);
             }
