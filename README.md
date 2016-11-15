@@ -26,7 +26,7 @@
     "import": true,
     "importFile": "style.scss",
     "directive": "@import"
-  }
+  },
   "spider": {
     "breakpoints": {
       "lg": "1200px",   // large
