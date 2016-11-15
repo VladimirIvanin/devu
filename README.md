@@ -14,7 +14,7 @@
 
 `devu --make --template index` - создаст шаблон
 
-`devu --make --spider` - создаст файл библиотеки spider.css в папке media 
+`devu --make --spider` - создаст файл фреймворка spider.css в папке media 
 
 Пример файла настроек `devufile.json`
 ```
@@ -27,21 +27,21 @@
     "importFile": "style.scss",
     "directive": "@import"
   },
-  "spider": {
+  "spider":{
     "breakpoints": {
-      "lg": "1200px",   // large
-      "md": "1024px",   // medium
-      "sm": "768px",    // small
-      "xs": "480px",    // extra small
-      "mc": "380px"     // micro
+      "lg": "1200px",
+      "md": "1024px",
+      "sm": "768px",
+      "xs": "480px",
+      "mc": "380px"
     },
-    "grid": {
-      "breakpoint":       "sm",
-      "type":             "flexbox",  // flexbox , float
-      "columns":          12,       // number of columns
-      "gutter_width":     "40px",     // number in px / em / rem / etc
-      "container_width":  "1220px",   // number or 'auto',
-      "container_type":   "stretchy", // static or stretchy
+    "grid":{
+      "breakpoint": "sm",
+      "type": "flexbox",
+      "columns": 12,
+      "gutter_width": "40px",
+      "container_width": "1220px",
+      "container_type": "stretchy"
     }
   }
 }
@@ -64,4 +64,4 @@
 
 ### spider
 
-Список настроек библиотеки spider.css
+Список настроек фреймворк spider.css
