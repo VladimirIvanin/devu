@@ -11,14 +11,19 @@ make.template = function (names, root, config) {
   }
 
   _.forEach(names, function (name) {
-    let content = {};
-
-    createFile(root + '/templates/' + name + '.liquid', '', function (err) {
-      if (err) {
-        console.log('Шаблон уже существует');
-      }
-    });
-
+    name = _.trim(name);
+    let templateName = root + '/templates/' + name + '.liquid';
+    fs.readFile(templateName,  (err, data) => {
+        if (err) {
+          createFile(root + '/templates/' + name + '.liquid', '', function (err) {
+            if (err) {
+              console.log('Шаблон уже существует');
+            }
+          });
+        }else{
+          console.log('Шаблон уже существует');
+        }
+    })
   })
 }
 
@@ -27,6 +32,7 @@ make.snippets = function (snippetsName, root, config) {
     return;
   }
   _.forEach(snippetsName, function (name) {
+    name = _.trim(name)
     createFile(root + '/snippets/' + name + '.liquid', '', function (err) {
       if (err) {
         console.log('Сниппет уже существует');
