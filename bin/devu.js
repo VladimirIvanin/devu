@@ -1,10 +1,10 @@
 #!/usr/bin/env node
-const Liftoff = require('liftoff');
-const make = require('../make/make.js');
-const argv = require('minimist')(process.argv.slice(2));
-const _ = require('lodash');
+var Liftoff = require('liftoff');
+var make = require('../make/make.js');
+var argv = require('minimist')(process.argv.slice(2));
+var _ = require('lodash');
 
-const devu = new Liftoff({
+var devu = new Liftoff({
   name: 'devu',
   moduleName: 'devu',
   configName: 'devufile',
@@ -27,10 +27,10 @@ const devu = new Liftoff({
  * devu --make --template index
  * devu --make --snippets logo,cart_widget,nav
  */
-const invoke = function (env) {
+var invoke = function (env) {
   if (argv['make']) {
-    const _root = env.cwd;
-    let config =  {};
+    var _root = env.cwd;
+    var config =  {};
     if (env.configPath) {
       config = require(env.configPath);
     }
@@ -53,7 +53,7 @@ devu.launch({
 }, invoke);
 
 function patchConfig(config) {
-  let options = {
+  var options = {
     scss:{
       extension: "scss",
       prefix: "_",

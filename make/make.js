@@ -1,10 +1,10 @@
-const fs = require('fs');
-const path = require('path');
-const createFile = require('create-file');
-const _ = require('lodash');
-const beautify = require('json-pretty');
+var fs = require('fs');
+var path = require('path');
+var createFile = require('create-file');
+var _ = require('lodash');
+var beautify = require('json-pretty');
 
-const make = {};
+var make = {};
 make.template = function (names, root, config) {
   if (!names) {
     return;
@@ -12,7 +12,7 @@ make.template = function (names, root, config) {
 
   _.forEach(names, function (name) {
     name = _.trim(name);
-    let templateName = root + '/templates/' + name + '.liquid';
+    var templateName = root + '/templates/' + name + '.liquid';
     fs.readFile(templateName,  (err, data) => {
         if (err) {
           createFile(root + '/templates/' + name + '.liquid', '', function (err) {
@@ -48,8 +48,8 @@ make.snippets = function (snippetsName, root, config) {
         }
       });
       if (config.scss.import) {
-        let importFile = root + '/media/' + config.scss.importFile
-        let incSrting = config.scss.derective + ' ' + config.scss.prefix + name + ';\n';
+        var importFile = root + '/media/' + config.scss.importFile
+        var incSrting = config.scss.derective + ' ' + config.scss.prefix + name + ';\n';
         fs.readFile(importFile,  (err, data) => {
             if (err) {
               createFile(importFile, incSrting, function (err) {
