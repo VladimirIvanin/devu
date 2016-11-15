@@ -5,19 +5,23 @@
   "bin": {
     "devu": "./bin/devu.js"
   },
+  "bugs": {
+    "url": "https://github.com/VladimirIvanin/devu/issues"
+  },
   "dependencies": {
+    "app-root-path": "^2.0.1",
     "create-file": "^1.0.1",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-sass-vars": "^1.0.2",
     "interpret": "^1.0.1",
     "json-pretty": "0.0.1",
     "liftoff": "^2.3.0",
     "lodash": "^4.17.0",
     "minimist": "^1.2.0",
+    "rootbeer": "^1.0.5",
     "v8flags": "^2.0.11",
     "write": "^0.3.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/VladimirIvanin/devu.git"
   },
   "description": "Утилиты для разработки тем",
   "devDependencies": {},
@@ -25,12 +29,16 @@
   "engines": {
     "node": ">= 4.0.0"
   },
+  "homepage": "https://github.com/VladimirIvanin/devu#readme",
   "license": "MIT",
   "main": "index.js",
   "name": "devu",
-  "optionalDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/VladimirIvanin/devu.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "0.3.2"
+  "version": "0.3.6"
 }

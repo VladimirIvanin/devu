@@ -1,0 +1,80 @@
+// Float container
+@mixin make-float-container($container-width: grid(container-width), $container-type: grid(container-type)) {
+  .container {
+    @include gutter();
+    margin-left: auto;
+    margin-right: auto;
+
+    @if ($container-width != 'auto') {
+
+      @if ($container-type == 'static') {
+        width: $container-width;
+      } @else {
+        max-width: $container-width;
+      }
+    }
+  }
+}
+
+// Float row
+@mixin make-float-row() {
+  .row {
+    @include gutter(-(grid(gutter-width)), 'outside');
+    @include clearfix();
+  }
+}
+
+// Float cell
+@mixin utility-float-cell($breakpoint-name: '', $postfix: '', $columns: grid(columns)) {
+
+  @if ($breakpoint-name != '') {
+    $breakpoint-name: '-'+$breakpoint-name;
+  }
+
+  @if ($postfix != '') {
+    $postfix: '-'+$postfix;
+  }
+
+  @for $index from 1 through $columns {
+    .cell-#{$index}#{$breakpoint-name}#{$postfix} {
+      width: span($index);
+    }
+  }
+  .cell-fifth#{$breakpoint-name}#{$postfix} {
+    width: 20%;
+  }
+}
+
+@mixin make-float-cell-preset(){
+  [class*='cell-'] {
+    float: left;
+    @include gutter();
+  }
+}
+
+@mixin make-float-cell($breakpoints: $grid-breakpoints, $columns: grid(columns)) {
+
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+
+    @if ($breakpoint-name == breakpoint-last('name')) {
+
+      @include utility-float-cell($breakpoint-name);
+
+    } @else if ($breakpoint-name != breakpoint-first('name') and $breakpoint-name != breakpoint-last('name')) {
+
+      @include media-max($breakpoint-value) {
+        @include utility-float-cell($breakpoint-name);
+      }
+
+      @include media-between(breakpoint-next($breakpoint-name, 'name'), $breakpoint-value) {
+        @include utility-float-cell($breakpoint-name, 'only');
+      }
+
+    } @else if ($breakpoint-name == breakpoint-first('name')) {
+
+      @include media-max($breakpoint-value) {
+        @include utility-float-cell($breakpoint-name);
+      }
+    }
+  }
+}

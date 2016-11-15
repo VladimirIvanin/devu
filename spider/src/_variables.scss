@@ -1,0 +1,64 @@
+// Colors
+$gray-base:                     #000;
+$gray-darker:                   lighten($gray-base, 13.5%);
+$gray-dark:                     lighten($gray-base, 20%)  ;
+$gray:                          lighten($gray-base, 33.5%);
+$gray-light:                    lighten($gray-base, 46.7%);
+$gray-lighter:                  lighten($gray-base, 93.5%);
+
+$primary-background:            #428bca;
+$primary-text:                  #ffffff;
+$primary-border:                #428bca;
+$primary-link:                  #428bca;
+$primary-link-hover:            darken(#428bca, 20%);
+
+$secondary-background:          #e6a022;
+$secondary-text:                #ffffff;
+$secondary-border:              #e6a022;
+$secondary-link:                #e6a022;
+$secondary-link-hover:          darken(#e6a022, 20%);
+
+$brand-success:                 #5cb85c;
+$brand-info:                    #5bc0de;
+$brand-warning:                 #f0ad4e;
+$brand-error:                   #d9534f;
+
+// Background
+$body-background-color:         #fff;
+$body-background-image:         false;
+$body-background-repeat:        no-repeat;
+$body-background-position:      top center;
+
+// Global textual link color.
+$link-color:                    $primary-link;
+$link-decoration:               underline;
+$link-hover-color:              $primary-link-hover;
+$link-hover-decoration:         none;
+
+// Fonts
+$font-size-base:                14px;
+$font-family-sans-serif:        "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-serif:             Georgia, "Times New Roman", Times, serif;
+$font-family-icon:              "FontAwesome";
+$line-height-base:              16px;
+
+// Headings
+$headings-font-family:          $font-family-serif;
+
+// Guters
+$gutter-vertical:               20px;
+$gutter-horizontal:             20px;
+$gutter-vertical-sm:            10px;
+$gutter-horizontal-sm:          10px;
+
+// Z-indexes
+$z-layers: (
+  dropdown: 1000
+);
+
+// Cursor
+$cursor-disabled:               not-allowed;
+
+// Transition
+$transition-delay:              .15s;
+$transition-animation:          ease;;

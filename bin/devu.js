@@ -3,6 +3,8 @@ var Liftoff = require('liftoff');
 var make = require('../make/make.js');
 var argv = require('minimist')(process.argv.slice(2));
 var _ = require('lodash');
+var fs = require('fs');
+var path = require('path');
 
 var devu = new Liftoff({
   name: 'devu',
@@ -42,6 +44,9 @@ var invoke = function (env) {
     if (argv['snippets']) {
       make.snippets(argv['snippets'].split(','), _root, config)
     }
+    if (argv['spider']) {
+      make.spider(_root, config)
+    }
   }
 };
 
@@ -62,13 +67,31 @@ function patchConfig(config) {
       import: false,
       importFile: "style.scss",
       directive: "@import"
+    },
+    spider: {
+      breakpoints: {
+        lg: "1200px",   // large
+        md: "1024px",   // medium
+        sm: "768px",    // small
+        xs: "480px",    // extra small
+        mc: "380px"     // micro
+      }
+      ,
+      grid: {
+        breakpoint:       "sm",
+        type:             "flexbox",  // flexbox , float
+        columns:          12,       // number of columns
+        gutter_width:     "40px",     // number in px / em / rem / etc
+        container_width:  "1220px",   // number or 'auto',
+        container_type:   "stretchy", // static or stretchy
+      }
     }
   }
-  if (config.usePrefix) {
-    config.scss.prefix = "_"
+  var result = _.merge(options, config);
+  if (result.scss.usePrefix) {
+    result.scss.prefix = "_"
   }else{
-    config.scss.prefix = ""
+    result.scss.prefix = ""
   }
-  var result = _.merge(options, config)
   return result;
 }

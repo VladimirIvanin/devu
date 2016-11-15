@@ -1,0 +1,61 @@
+// Visibility
+@mixin utility-visiblity($breakpoint-name: '', $postfix: '') {
+
+  @if ($breakpoint-name != '') {
+    $breakpoint-name: '-'+$breakpoint-name;
+  }
+
+  @if ($postfix != '') {
+    $postfix: '-'+$postfix;
+  }
+
+  .hide#{$breakpoint-name}#{$postfix} {
+    display: none !important;
+  }
+
+  .show#{$breakpoint-name}#{$postfix} {
+    display: block !important;
+  }
+  .show-flex#{$breakpoint-name}#{$postfix} {
+    display: flex !important;
+  }
+  .show-inline#{$breakpoint-name}#{$postfix} {
+    display: inline !important;
+  }
+  .show-inline-block#{$breakpoint-name}#{$postfix} {
+    display: inline-block !important;
+  }
+}
+
+@mixin make-visibility( $breakpoints: $grid-breakpoints ) {
+
+  @include utility-visiblity();
+
+  @include media-min(){
+    @include utility-visiblity('desktop');
+  }
+
+  @include media-max(){
+    @include utility-visiblity('mobile');
+  }
+
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+
+    @if ($breakpoint-name != breakpoint-last('name')) {
+
+      @include media-max($breakpoint-value) {
+        @include utility-visiblity($breakpoint-name);
+      }
+
+      @include media-between(breakpoint-next($breakpoint-name, 'name'), $breakpoint-value) {
+        @include utility-visiblity($breakpoint-name, 'only');
+      }
+
+    } @else if ($breakpoint-name == breakpoint-last('name')) {
+
+      @include media-max($breakpoint-value) {
+        @include utility-visiblity($breakpoint-name);
+      }
+    }
+  }
+}

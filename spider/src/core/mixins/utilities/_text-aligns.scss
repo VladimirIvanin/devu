@@ -1,0 +1,57 @@
+// Text align
+@mixin utility-aligns($breakpoint-name: '', $postfix: '') {
+
+  @if ($breakpoint-name != '') {
+    $breakpoint-name: '-'+$breakpoint-name;
+  }
+
+  @if ($postfix != '') {
+    $postfix: '-'+$postfix;
+  }
+
+  .text-right#{$breakpoint-name}#{$postfix} {
+    text-align: right;
+  }
+  .text-left#{$breakpoint-name}#{$postfix} {
+    text-align: left;
+  }
+  .text-center#{$breakpoint-name}#{$postfix} {
+    text-align: center;
+  }
+  .text-justify#{$breakpoint-name}#{$postfix} {
+    text-align: justify;
+  }
+}
+
+@mixin make-aligns( $breakpoints: $grid-breakpoints ) {
+
+  @include utility-aligns();
+
+  @include media-min(){
+    @include utility-aligns('desktop');
+  }
+
+  @include media-max(){
+    @include utility-aligns('mobile');
+  }
+
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+
+    @if ($breakpoint-name != breakpoint-last('name')) {
+
+      @include media-max($breakpoint-value) {
+        @include utility-aligns($breakpoint-name);
+      }
+
+      @include media-between(breakpoint-next($breakpoint-name, 'name'), $breakpoint-value) {
+        @include utility-aligns($breakpoint-name, 'only');
+      }
+
+    } @else if ($breakpoint-name == breakpoint-last('name')) {
+
+      @include media-max($breakpoint-value) {
+        @include utility-aligns($breakpoint-name);
+      }
+    }
+  }
+}

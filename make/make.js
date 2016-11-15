@@ -4,8 +4,33 @@ var createFile = require('create-file');
 var writeFile = require('write');
 var _ = require('lodash');
 var beautify = require('json-pretty');
+var gulp = require('gulp');
+var sassVars = require('gulp-sass-vars');
+var rootbeer = require('rootbeer');
+var sass = require('gulp-sass');
+var appRoot = require('app-root-path');
+var spiderPath = path.normalize(appRoot + '/node_modules/devu/spider/src/spider.scss');
+
 
 var make = {};
+
+make.spider = function (root, config) {
+  var breakpoints = '\n$grid-breakpoints: ' + rootbeer.convertJs(config.spider.breakpoints)+ ';' + '\n$grid: ' + rootbeer.convertJs(config.spider.grid) + ';\n';
+
+  var strVar = '@import "variables";\n @import "variables-default";\n@import "mixins";\n@import "core/mixins";\n@import "core/scaffolding";\n@import "core/elements";\n@import "core/grid";'
+  var res = breakpoints + strVar;
+
+  res = res.replace('gutter_width', 'gutter-width')
+  res = res.replace('container_width', 'container-width')
+  res = res.replace('container_type', 'container-type')
+  writeFile(spiderPath, res, function () {
+     gulp.src(spiderPath)
+      .pipe(sass().on('error', sass.logError))
+      .pipe(gulp.dest(path.normalize(root + '/media/')))
+  })
+
+}
+
 make.template = function (names, root, config) {
   if (!names) {
     return;

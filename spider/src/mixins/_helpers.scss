@@ -1,0 +1,120 @@
+// Clearfix
+@mixin clearfix {
+
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+}
+
+// Set gutters
+@mixin gutter ($gutter: grid(gutter-width), $type: 'inside') {
+  @if ($type == 'inside') {
+    padding-left: $gutter / 2;
+    padding-right: $gutter / 2;
+  } @else if($type == 'outside') {
+    margin-left: $gutter / 2;
+    margin-right: $gutter / 2;
+  }
+}
+
+// Element size - width and height
+@mixin size($width: 0, $height: 0) {
+  @if ($width != 0 and $height == 0) {
+    $height: $width;
+  }
+  height: $height;
+  width: $width;
+}
+
+// Placeholder text
+@mixin placeholder($color: #ccc ) {
+  // Firefox
+  &::-moz-placeholder {
+    color: $color;
+    opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+  // Internet Explorer 10+
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+  // Safari and Chrome
+
+  &:focus {
+
+    &::-moz-placeholder {
+      color: $color;
+      opacity: 0; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
+    }
+    &:-ms-input-placeholder {
+      color: $color;
+      opacity: 0;
+    }
+    // Internet Explorer 10+
+    &::-webkit-input-placeholder {
+      color: $color;
+      opacity: 0;
+    }
+    // Safari and Chrome
+  }
+}
+
+// Vertical align for inline elements
+@mixin vertical-align-middle() {
+
+  & > * {
+    vertical-align: middle;
+  }
+
+  &:after {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    overflow: hidden;
+    vertical-align: middle;
+    width: 0;
+  }
+}
+
+// Overlay position
+@mixin position-overlay ( $value: 0, $position: absolute ){
+  position: $position;
+  top: $value;
+  right: $value;
+  bottom: $value;
+  left: $value;
+}
+
+// Position center
+@mixin position-center ( $coordinates: 50% 50%, $position: absolute ) {
+
+  $top: nth( $coordinates, 1);
+  $left: nth( $coordinates, 2);
+
+  position: $position;
+  transform: translate( -$top, -$left );
+  top: $top;
+  left: $left;
+}
+
+// Transition
+@mixin transition($properties, $delay: $transition-delay, $animation: $transition-animation) {
+
+  $result: null;
+
+  @each $property in $properties {
+    $result: join($result, #{$delay $animation $property}, comma);
+  }
+
+  transition: $result;
+}
