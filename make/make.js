@@ -52,9 +52,21 @@ make.snippets = function (snippetsName, root, config) {
   })
 
   if (!config.notstyle && config.scss.import) {
-    var importFile = root + '/media/' + config.scss.importFile
+    var importFile = root + '/media/' + config.scss.importFile;
+
     fs.readFile(importFile,  (err, data) => {
         if (err) {
+          var newData = '';
+          var mainInc = '';
+          _.forEach(snippetsName, function (name) {
+            var incSrting = config.scss.derective + ' ' + config.scss.prefix + name + ';\n';
+            var incName = config.scss.derective + ' ' + config.scss.prefix + name;
+            if (!_.includes(newData, incName)) {
+              mainInc += incSrting;
+            }
+          })
+
+          newData = newData + mainInc;
           createFile(importFile, incSrting, function (err) {
             if (err) {
               console.log('Файл не может быть создан', importFile);
