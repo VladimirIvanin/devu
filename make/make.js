@@ -67,8 +67,8 @@ make.snippets = function (snippetsName, root, config) {
           var newData = '';
           var mainInc = '';
           _.forEach(snippetsName, function (name) {
-            var incSrting = config.scss.derective + ' ' + config.scss.prefix + name + ';\n';
-            var incName = config.scss.derective + ' ' + config.scss.prefix + name;
+            var incSrting = config.scss.directive + ' ' + config.scss.prefix + name + ';\n';
+            var incName = config.scss.directive + ' ' + config.scss.prefix + name;
             if (!_.includes(newData, incName)) {
               mainInc += incSrting;
             }
@@ -84,8 +84,8 @@ make.snippets = function (snippetsName, root, config) {
           var newData = data.toString('utf8');
           var mainInc = '';
           _.forEach(snippetsName, function (name) {
-            var incSrting = config.scss.derective + ' ' + config.scss.prefix + name + ';\n';
-            var incName = config.scss.derective + ' ' + config.scss.prefix + name;
+            var incSrting = config.scss.directive + ' ' + config.scss.prefix + name + ';\n';
+            var incName = config.scss.directive + ' ' + config.scss.prefix + name;
             if (!_.includes(newData, incName)) {
               mainInc += incSrting;
             }

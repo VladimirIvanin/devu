@@ -23,7 +23,7 @@
     "prefix": "_",
     "import": true,
     "importFile": "style.scss",
-    "derective": "@import"
+    "directive": "@import"
   }
 }
 ```
@@ -41,4 +41,4 @@
 
 `importFile` файл для подстановки символа
 
-`derective` деректива для импорта
+`directive` деректива для импорта

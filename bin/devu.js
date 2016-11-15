@@ -60,7 +60,7 @@ function patchConfig(config) {
       prefix: "_",
       import: false,
       importFile: "style.scss",
-      derective: "@import"
+      directive: "@import"
     }
   }
   return _.merge(options, config);
