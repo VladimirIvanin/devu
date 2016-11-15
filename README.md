@@ -12,7 +12,7 @@
 
 `devu --make --template index` - создаст шаблон
 
-Пример файла настроек `devufile.json` 
+Пример файла настроек `devufile.json`
 ```
 {
   "scss":{
@@ -24,4 +24,3 @@
   }
 }
 ```
-"# devu"
