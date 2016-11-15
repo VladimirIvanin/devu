@@ -17,12 +17,12 @@ var make = {};
 make.spider = function (root, config) {
   var breakpoints = '\n$grid-breakpoints: ' + rootbeer.convertJs(config.spider.breakpoints)+ ';' + '\n$grid: ' + rootbeer.convertJs(config.spider.grid) + ';\n';
 
+  breakpoints = breakpoints.replace(/\"/g, '');
+  breakpoints = breakpoints.replace(/_/g, '-');
+
   var strVar = '@import "variables";\n @import "variables-default";\n@import "mixins";\n@import "core/mixins";\n@import "core/scaffolding";\n@import "core/elements";\n@import "core/grid";'
   var res = breakpoints + strVar;
 
-  res = res.replace('gutter_width', 'gutter-width')
-  res = res.replace('container_width', 'container-width')
-  res = res.replace('container_type', 'container-type')
   writeFile(spiderPath, res, function () {
      gulp.src(spiderPath)
       .pipe(sass().on('error', sass.logError))
