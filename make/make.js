@@ -38,7 +38,7 @@ make.snippets = function (snippetsName, root, config) {
         console.log('Сниппет уже существует');
       }
       if (config.notstyle) {
-        console.log('Сниппет создан');
+        console.log('Сниппет '+name+' создан');
       }
     });
     if (!config.notstyle) {
@@ -69,7 +69,7 @@ make.snippets = function (snippetsName, root, config) {
                 });
               }
             }
-            console.log('Сниппет создан');
+            console.log('Сниппет '+name+' создан');
         })
       }
     }
