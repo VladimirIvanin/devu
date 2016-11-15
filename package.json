@@ -1,0 +1,31 @@
+{
+  "author": {
+    "name": "Vladimir Ivanin"
+  },
+  "bin": {
+    "devu": "./bin/devu.js"
+  },
+  "dependencies": {
+    "create-file": "^1.0.1",
+    "interpret": "^1.0.1",
+    "json-pretty": "0.0.1",
+    "liftoff": "^2.3.0",
+    "lodash": "^4.17.0",
+    "minimist": "^1.2.0",
+    "v8flags": "^2.0.11"
+  },
+  "description": "Утилиты для разработки тем",
+  "devDependencies": {},
+  "directories": {},
+  "engines": {
+    "node": ">= 4.0.0"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "name": "devu",
+  "optionalDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.0.9"
+}
