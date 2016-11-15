@@ -8,7 +8,7 @@
 
 `devu --make --snippets logo,cart_widget,nav` - создаст сниппеты
 
-`devu --make --snippets logo,cart_widget,nav --notstyle` - создаст сниппеты
+`devu --make --snippets logo,cart_widget,nav --notstyle` - создаст сниппеты без стилей
 
 `devu --make --template index` - создаст шаблон
 
