@@ -57,11 +57,18 @@ function patchConfig(config) {
     scss:{
       makeSnippetStyle: true,
       extension: "scss",
+      usePrefix: true,
       prefix: "_",
       import: false,
       importFile: "style.scss",
       directive: "@import"
     }
   }
-  return _.merge(options, config);
+  if (config.usePrefix) {
+    config.scss.prefix = "_"
+  }else{
+    config.scss.prefix = ""
+  }
+  var result = _.merge(options, config)
+  return result;
 }

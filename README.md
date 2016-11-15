@@ -20,7 +20,7 @@
   "scss":{
     "makeSnippetStyle": true,
     "extension": "scss",
-    "prefix": "_",
+    "usePrefix": true,
     "import": true,
     "importFile": "style.scss",
     "directive": "@import"
@@ -35,7 +35,7 @@
 
 `extension` расширение создаваемых стилей
 
-`prefix` префикс для файла
+`usePrefix` подставлять `_` в название файла? Например `_core.css`
 
 `import` добавлять стоку подключения в файл стилей?
 
