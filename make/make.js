@@ -1,6 +1,7 @@
 var fs = require('fs');
 var path = require('path');
 var createFile = require('create-file');
+var writeFile = require('write');
 var _ = require('lodash');
 var beautify = require('json-pretty');
 
@@ -47,6 +48,7 @@ make.snippets = function (snippetsName, root, config) {
           console.log('Файл стилей уже существует');
         }
       });
+
       if (config.scss.import) {
         var importFile = root + '/media/' + config.scss.importFile
         var incSrting = config.scss.derective + ' ' + config.scss.prefix + name + ';\n';
@@ -58,11 +60,11 @@ make.snippets = function (snippetsName, root, config) {
                 }
               });
             }else{
-              if (_.includes(data, incSrting)) {
+              if (_.includes(data.toString('utf8'), incSrting)) {
                 return;
               }else{
                 data += data + incSrting;
-                createFile(importFile, data, function (err) {
+                writeFile(importFile, data, function (err) {
                   if (err) {
                     console.log('Файл не может быть создан', importFile);
                   }
