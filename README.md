@@ -18,9 +18,10 @@
 ```
 {
   "scss":{
+    "makeSnippetStyle": true,
     "extension": "scss",
     "prefix": "_",
-    "import": "true",
+    "import": true,
     "importFile": "style.scss",
     "derective": "@import"
   }
@@ -29,6 +30,8 @@
 ## Настройки
 
 ### scss
+
+`makeSnippetStyle` создавать стиль для сниппета?
 
 `extension` расширение создаваемых стилей
 

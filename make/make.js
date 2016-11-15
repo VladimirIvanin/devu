@@ -49,15 +49,17 @@ make.snippets = function (snippetsName, root, config) {
       }
     });
     if (!config.notstyle) {
-      createFile(root + '/media/' + config.scss.prefix + name + '.' + config.scss.extension, '', function (err) {
-        if (err) {
-          console.log('Файл стилей уже существует');
-        }
-      });
+      if (config.scss.makeSnippetStyle) {
+        createFile(root + '/media/' + config.scss.prefix + name + '.' + config.scss.extension, '', function (err) {
+          if (err) {
+            console.log('Файл стилей уже существует');
+          }
+        });
+      }
     }
   })
 
-  if (!config.notstyle && config.scss.import) {
+  if (!config.notstyle && config.scss.import && config.scss.makeSnippetStyle) {
     var importFile = root + '/media/' + config.scss.importFile;
 
     fs.readFile(importFile,  (err, data) => {
