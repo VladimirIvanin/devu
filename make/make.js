@@ -27,10 +27,10 @@ make.spider = function (root, config) {
   writeFile(spiderPath, res, function () {
      gulp.src(spiderPath)
       .pipe(sass().on('error', sass.logError))
-      .pipe(pipe(autoprefixer({
+      .pipe(autoprefixer({
             browsers: ['last 10 versions'],
             cascade: false
-        })))
+        }))
       .pipe(gulp.dest(path.normalize(root + '/media/')))
   })
 
