@@ -10,8 +10,12 @@ var rootbeer = require('rootbeer');
 var sass = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
 var appRoot = require('app-root-path');
-var spiderPath = path.normalize(appRoot + '/node_modules/devu/spider/src/spider.scss');
-
+var spiderPath = '';
+if (_.includes(appRoot, 'devu')) {
+  spiderPath = path.normalize(appRoot + '/spider/src/spider.scss');
+}else{
+  spiderPath = path.normalize(appRoot + '/node_modules/devu/spider/src/spider.scss');
+}
 
 var make = {};
 
@@ -19,6 +23,7 @@ make.spider = function (root, config) {
   var breakpoints = '\n$grid-breakpoints: ' + rootbeer.convertJs(config.spider.breakpoints)+ ';' + '\n$grid: ' + rootbeer.convertJs(config.spider.grid) + ';\n';
 
   breakpoints = breakpoints.replace(/\"/g, '');
+  breakpoints = breakpoints.replace(/"/g, '');
   breakpoints = breakpoints.replace(/_/g, '-');
 
   var strVar = '@import "variables";\n @import "variables-default";\n@import "mixins";\n@import "core/mixins";\n@import "core/scaffolding";\n@import "core/elements";\n@import "core/grid";'
