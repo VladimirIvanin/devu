@@ -14,7 +14,11 @@
 
 `devu --make --template index` - создаст шаблон
 
-`devu --make --spider` - создаст файл фреймворка spider.css в папке media 
+`devu --make --spider` - создаст файл фреймворка spider.css в папке media
+
+`devu --stream` - запускает стрим файлов в insales-uploader
+
+`devu --download` - запускает скачивание темы
 
 Пример файла настроек `devufile.json`
 ```
@@ -26,6 +30,30 @@
     "import": true,
     "importFile": "style.scss",
     "directive": "@import"
+  },
+  "uploader": {
+    "account": {
+      "id": "4054as6d540a6sd4064065406",
+      "token": "012494098076131064684066",
+      "url": "shop-0123456.myinsales.ru",
+      "http": false
+    },
+    "theme": {
+      "id": "0123456",
+      "root": "./",
+      "update": true,
+      "startBackup": true
+    },
+    "tools":{
+      "openBrowser": {
+        "start": true
+      },
+      "browserSync": {
+        "start": true,
+        "reloadDebounce": 5000,
+        "reloadDelay": 2000
+      }
+    }
   },
   "spider":{
     "breakpoints": {
@@ -61,6 +89,10 @@
 `importFile` файл для подстановки символа
 
 `directive` деректива для импорта
+
+### uploader
+
+Настройки для [insales-uploader](https://github.com/VladimirIvanin/insales-uploader)
 
 ### spider
 

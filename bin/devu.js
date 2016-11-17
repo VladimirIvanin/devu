@@ -5,6 +5,7 @@ var argv = require('minimist')(process.argv.slice(2));
 var _ = require('lodash');
 var fs = require('fs');
 var path = require('path');
+var InsalesUploader = require('insales-uploader');
 
 var devu = new Liftoff({
   name: 'devu',
@@ -30,14 +31,14 @@ var devu = new Liftoff({
  * devu --make --snippets logo,cart_widget,nav
  */
 var invoke = function (env) {
+  var config =  {};
+  if (env.configPath) {
+    config = require(env.configPath);
+  }
+  config['notstyle'] = argv.notstyle
+  config = patchConfig(config);
+  var _root = env.cwd;
   if (argv['make']) {
-    var _root = env.cwd;
-    var config =  {};
-    if (env.configPath) {
-      config = require(env.configPath);
-    }
-    config['notstyle'] = argv.notstyle
-    config = patchConfig(config);
     if (argv['template']) {
       make.template(argv['template'], _root, config)
     }
@@ -46,6 +47,29 @@ var invoke = function (env) {
     }
     if (argv['spider']) {
       make.spider(_root, config)
+    }
+  }
+
+  if (argv.stream || argv.download || argv.upload || argv.pull || argv.push) {
+    if (!config.uploader) {
+      console.log('Нет настроек для insales-uploader')
+      return;
+    }
+    var uploader = new InsalesUploader(config.uploader);
+    if (argv.stream) {
+      uploader.stream()
+    }
+    if (argv.download) {
+      uploader.download()
+    }
+    if (argv.upload) {
+      uploader.upload()
+    }
+    if (argv.pull) {
+      uploader.pullTheme()
+    }
+    if (argv.push) {
+      uploader.pushTheme()
     }
   }
 };

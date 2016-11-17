@@ -8,6 +8,7 @@ var gulp = require('gulp');
 var sassVars = require('gulp-sass-vars');
 var rootbeer = require('rootbeer');
 var sass = require('gulp-sass');
+var autoprefixer = require('gulp-autoprefixer');
 var appRoot = require('app-root-path');
 var spiderPath = path.normalize(appRoot + '/node_modules/devu/spider/src/spider.scss');
 
@@ -26,6 +27,10 @@ make.spider = function (root, config) {
   writeFile(spiderPath, res, function () {
      gulp.src(spiderPath)
       .pipe(sass().on('error', sass.logError))
+      .pipe(pipe(autoprefixer({
+            browsers: ['last 10 versions'],
+            cascade: false
+        })))
       .pipe(gulp.dest(path.normalize(root + '/media/')))
   })
 
