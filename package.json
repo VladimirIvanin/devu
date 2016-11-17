@@ -13,6 +13,7 @@
     "create-file": "^1.0.1",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
+    "gulp-replace": "^0.5.4",
     "gulp-sass": "^2.3.2",
     "gulp-sass-vars": "^1.0.2",
     "insales-uploader": "^0.21.12",
@@ -42,5 +43,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "0.7.0"
+  "version": "0.7.2"
 }
