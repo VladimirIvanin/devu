@@ -83,6 +83,7 @@ devu.launch({
 
 function patchConfig(config) {
   var options = {
+    debugMode: false,
     scss:{
       makeSnippetStyle: true,
       extension: "scss",
