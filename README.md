@@ -1,5 +1,7 @@
 <p align="center">
-  <img src="https://cdn.rawgit.com/VladimirIvanin/devu/master/devu.png">
+  <a target="_blank" href="https://www.npmjs.com/package/devu">
+    <img src="https://cdn.rawgit.com/VladimirIvanin/devu/master/devu.png">
+  </a>
 </p>
 
 ## Установка
