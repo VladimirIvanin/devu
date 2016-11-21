@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://cdn.rawgit.com/VladimirIvanin/devu/master/devu.png">
+</p>
+
 ## Установка
 
 `npm i devu -g`
