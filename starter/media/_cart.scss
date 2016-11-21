@@ -1,0 +1,136 @@
+.cart {
+}
+
+.cart-control {
+}
+
+.total-summ {
+  margin-top: $vertical-gutter;
+  margin-bottom: $vertical-gutter;
+
+  line-height: 1.2;
+}
+
+.summ-caption {
+  font-size: $font-size-large;
+  text-transform: uppercase;
+}
+
+.summ-number {
+  font-size: $font-size-large;
+  color: $color-link-primary;
+  font-weight: normal;
+}
+
+.cart-checkout {
+  text-transform: uppercase;
+  font-size: $font-size-medium;
+}
+
+/** cart-item */
+.cart-item {
+  margin-top: $vertical-gutter;
+  margin-bottom: $vertical-gutter;
+  padding-bottom: $vertical-gutter/2;
+
+  border-bottom: 1px solid $color-border-primary;
+
+  > * {
+    margin-top: $vertical-gutter/2;
+    margin-bottom: $vertical-gutter/2;
+  }
+}
+
+.cart-item-inner {
+  > * {
+    margin-top: $vertical-gutter/2;
+    margin-bottom: $vertical-gutter/2;
+  }
+}
+
+.item-title {
+  margin-top: $vertical-gutter;
+  margin-bottom: $vertical-gutter;
+
+  line-height: 1.2;
+  font-weight: normal;
+}
+
+.item-article {
+  margin-top: $vertical-gutter;
+  margin-bottom: $vertical-gutter;
+}
+
+.item-price {
+  font-size: $font-size-primary;
+  color: $color-link-primary;
+}
+
+.item-total {
+  font-size: $font-size-medium;
+  color: $color-link-primary;
+  font-weight: normal;
+}
+
+/** discounts */
+
+.discount-form {
+  @include display-flex();
+  @include align-items(strech);
+
+  margin-top: $vertical-gutter;
+  margin-bottom: $vertical-gutter;
+}
+
+.discount-input {
+  padding: 0 $horizontal-gutter/2;
+
+  border: 1px solid $color-border-primary;
+}
+
+.discount-comment {
+  margin-top: $vertical-gutter;
+  margin-bottom: $vertical-gutter;
+}
+
+.discount-description {
+
+}
+
+.discount-amount {
+  font-size: $font-size-medium;
+}
+
+.discounts-notice {
+  display: inline-block;
+}
+
+/** cart widget*/
+
+.shopcart-widget {
+  @include display-flex();
+  @include flex-wrap(nowrap);
+}
+
+.shopcart-link {
+  font-size: $font-size-primary;
+  white-space: nowrap;
+  @include display-flex();
+  @include flex-wrap(nowrap);
+
+  @include link-decor($color-text-secondary, $color-link-secondary-hover);
+}
+
+.shopcart-icon {
+  margin-right: 0.3rem;
+}
+
+.shopcart-widget-count {
+  line-height: 1rem;
+  padding: 0 0.5rem;
+  border-radius: 0.5rem;
+
+  background-color: $color-link-secondary;
+  color: $color-background-secondary;
+  font-size: 80%;
+}

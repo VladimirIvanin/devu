@@ -1,0 +1,63 @@
+.search {}
+
+.search-results-toolbar {
+  @include display-flex();
+  margin-bottom: $vertical-gutter;
+  margin-top: $vertical-gutter;
+
+  > * {
+  }
+
+  &.is-bottom {
+    border-top: 2px solid $gray-lighter;
+  }
+}
+
+// ВИджет поиска
+.search-widget {
+  height: 30px;
+  @include display-flex();
+  @include align-items(stretch);
+  border: 1px solid $color-border-primary;
+
+  background-color: #fff;
+
+  max-width: 200px;
+  min-width: 150px;
+
+  &.in-top-menu {
+    height: 25px;
+  }
+
+  &.is-mobile {
+    max-width: 100%;
+  }
+
+  &.on-page {
+    margin-bottom: $vertical-gutter;
+  }
+}
+
+.search-widget-field {
+  display: block;
+  width: 100%;
+  border: none;
+  padding: 0 0.5em ;
+  @include flex(1 0 100px);
+
+  background-color: transparent;
+}
+
+.search-widget-button {
+  display: inline-block;
+  @include flex(0 0 30px);
+  padding: 0;
+
+  color: $color-link-primary;
+  background-color: transparent;
+
+  &:hover {
+    color: $color-link-primary-hover;
+    background-color: transparent;
+  }
+}

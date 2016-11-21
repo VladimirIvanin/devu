@@ -1,0 +1,182 @@
+//====================================================================================================================//
+//
+// ВНИМАНИЕ ! УВАГА ! ATTENTION ! VORSICHT ! 注意 ! 注意事項 ! ЕСКЕРТУ !
+//
+// Данный файл не предназначен для редактирования.
+// В случае его изменения вы берёте на себя всю ответственность за возможные последствия!
+//
+// Даний файл не призначений для редагування.
+// У разі його зміни ви берете на себе всю відповідальність за можливі наслідки!
+//
+// This file is not suitable for editing.
+// If it changes you take full responsibility for the consequences!
+//
+// Diese Datei ist für die Bearbeitung nicht geeignet.
+// Wenn es ändert übernehmen Sie die volle Verantwortung für die Folgen!
+//
+// このファイルには、編集には適していません。
+// それが変化した場合には、結果に全責任を取ります！
+//
+// 該文件不適合進行編輯。
+// 如果它改變你承擔的後果負全部責任！
+//
+// Бұл файл өңдеу үшін қолайлы емес.
+// Ол өзгертеді, онда сіз салдары үшін толық жауапкершілікті өз мойнына!
+//
+//====================================================================================================================//
+
+// Breakpoints
+$grid-breakpoints: (
+  lg: 1200px,
+  md: 1024px,
+  sm: 768px,
+  xs: 480px,
+  mc: 380px
+) !default;
+
+// Z-indexes
+$z-layers: (
+  before: -1,
+  after: 1,
+  panel:            1200,
+  dropdown:         1100,
+  slide-caption:    1010,
+  slide-pagination: 1020,
+  card:             1000,
+  card-hover:       1010,
+  labels-list:      1000
+) !default;
+
+// Gutters
+$grid-gutter:                   20px !default;
+$vertical-gutter:               10px !default;
+$horizontal-gutter:             10px !default;
+$block-gutter:                  30px !default;
+
+// Theme settings
+
+// Colors
+$color-background-primary:      #ffffff !default;
+$color-text-primary:            #333333 !default;
+$color-link-primary:            #2196F3 !default;
+$color-link-primary-hover:      #6FC7F2 !default;
+$color-border-primary:          #BBDEFB !default;
+
+// Дополнительные цвета
+$color-background-secondary:    #2196F3 !default;
+$color-text-secondary:          #FFFFFF !default;
+$color-link-secondary:          #FFFFFF !default;
+$color-link-secondary-hover:    #CCCCCC !default;
+$color-border-secondary:        #FFFFFF !default;
+
+// Фоновая подложка
+$body-background-color:         #ffffff !default;
+$body-background-use:           true !default;
+$body-background-image:         false !default;
+
+// Карточка товара
+$cards-background-hide:         false !default;
+
+// Шрифты
+$font-family-primary:           "Cuprum" !default;
+$font-size-primary:             14px !default;
+
+// Настройка логотипа
+$logotype-font-family:          "Arial" !default;
+$logotype-font-size:            20px !default;
+
+$gray-base:                     #000 !default;
+$gray-darker:                   lighten($gray-base, 13.5%) !default;
+$gray-dark:                     lighten($gray-base, 20%)   !default;
+$gray:                          lighten($gray-base, 33.5%) !default;
+$gray-light:                    lighten($gray-base, 46.7%) !default;
+$gray-lighter:                  lighten($gray-base, 93.5%) !default;
+
+$brand-black:                   #252525 !default;
+$brand-primary:                 #2196F3 !default;
+$brand-secondary:               #ca3247 !default;
+$brand-success:                 #5cb85c !default;
+$brand-info:                    #5bc0de !default;
+$brand-warning:                 #f0ad4e !default;
+$brand-error:                   #ff212a !default;
+
+// Background color for `<body>`.
+$body-bg:                       #fff !default;
+
+// Global text color on `<body>`.
+$text-color:                    $gray-dark !default;
+
+// Global textual link color.
+$link-color:                    $brand-primary !default;
+$link-decoration:               underline !default;
+$link-hover-color:              darken($link-color, 15%) !default;
+$link-hover-decoration:         none !default;
+
+// Fonts
+$font-family-sans-serif:        $font-family-primary, "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-serif:             Georgia, "Times New Roman", Times, serif !default;
+$font-family-base:              $font-family-primary !default;
+$line-height-base:              16px !default;
+$font-family-icon:              "FontAwesome" !default;
+
+$headings-font-family:          $font-family-sans-serif !default;
+
+// Components config
+$cursor-disabled:               not-allowed !default;
+
+// Transition
+$transition-delay:              .2s !default;
+$transition-animation:          ease !default;
+
+// Star rating
+$star-color:                    goldenrod !default;
+$star-hover-color:              gold !default;
+$star-active-color:             darkred !default;
+$star-icon:                     "\f006" !default;
+$star-icon-active:              "\f005" !default;
+
+// Различные настройки по-умолчанию
+$link-decoration: none;
+
+$vertical-gutter: 1rem;
+$horizontal-gutter: 1rem;
+$block-gutter: 3rem;
+
+
+// font-size
+
+$font-size-medium: 1.2rem;
+$font-size-large: 1.4rem;
+
+// Headings
+
+$font-size-h1: 2rem;
+$font-size-h2: $font-size-large;
+$font-size-h3: $font-size-medium;
+$font-size-h4: 1rem;
+$font-size-h5: 1rem;
+$font-size-h6: 1rem;
+
+$font-weight-heading: normal;
+
+// compass
+$default-transition-duration: 0.3s;
+
+// icons
+$fa-plus: '\f067';
+$fa-minus: '\f068';
+
+$fa-chevron-up: '\f078';
+$fa-chevron-right: '\f054';
+$fa-chevron-down: '\f078';
+$fa-chevron-left: '\f053';
+
+$fa-angle-up: '\f106';
+$fa-angle-right: '\f105';
+$fa-angle-down: '\f107';
+$fa-angle-left: '\f104';
+
+$fa-circle-thin: '\f1db';
+$fa-circle: '\f111';
+
+$fa-warning: '\f06a';

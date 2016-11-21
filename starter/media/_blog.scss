@@ -1,0 +1,31 @@
+.blog {
+
+}
+
+/** menu */
+.blog-menu {
+  @include menu(vertical);
+  @include align-items(flex-start);
+}
+
+.blog-menu-item {
+  @include menu-item();
+  @include flex-basis(100%);
+  text-align: left;
+}
+
+.blog-menu-link {
+  @include menu-link($color-text-primary);
+  margin-bottom: $vertical-gutter;
+
+  font-size: $font-size-primary;
+  line-height: 1.2;
+}
+
+/** */
+
+.blog-toolbar {
+  @include display-flex();
+  @include justify-content(space-between);
+  border-top: 2px solid $gray-lighter;
+}

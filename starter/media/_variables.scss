@@ -1,0 +1,26 @@
+// Theme settings
+// Colors
+$color-background-primary: #FFFFFF;
+$color-text-primary: #333333;
+$color-link-primary: #4285F4;
+$color-link-primary-hover: #6FC7F2;
+$color-border-primary: #BBDEFB;
+// Дополнительные цвета
+$color-background-secondary: #4285F4;
+$color-text-secondary: #FFFFFF;
+$color-link-secondary: #E3E3E3;
+$color-link-secondary-hover: #CCCCCC;
+$color-border-secondary: #FFFFFF;
+// Фоновая подложка
+$body-background-color: #FFFFFF;
+$body-background-use: false;
+$body-background-image: false;
+$body-background-type: "tile";
+// Карточка товара
+$cards-background-hide: settings(1);
+// Шрифты
+$font-family-primary: "sans-serif";
+$font-size-primary: 14px;
+// Настройка логотипа
+$logotype-font-family: "sans-serif";
+$logotype-font-size: 18px;

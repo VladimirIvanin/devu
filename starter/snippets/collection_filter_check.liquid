@@ -1,0 +1,22 @@
+{% assign filters_active = false %}
+
+{% if collection.current_option_values > 0 %}
+  {% assign filters_active = true %}
+{% endif %}
+
+{% for property in collection.properties %}
+  {% if property.current? or property.lt_value or property.gt_value %}
+    {% assign filters_active = true %}
+  {% endif %}
+{% endfor %}
+
+{% if filters_active %}
+  {% assign display_filter = true %}
+  {% assign filter_selected = true %}
+{% elsif collection.products.size > 0 %}
+  {% assign display_filter = true %}
+{% else %}
+  {% assign display_filter = false %}
+{% endif %}
+
+{% assign filters_active = null %}

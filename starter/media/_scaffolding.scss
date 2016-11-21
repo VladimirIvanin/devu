@@ -1,0 +1,103 @@
+$shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+
+html {
+  height: 100%;
+}
+
+body {
+  min-width: 320px;
+  line-height: 1;
+  min-height: 100%;
+  height: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 0;
+}
+
+.editor {
+  line-height: 1.5;
+
+  color: inherit;
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1rem;
+  }
+}
+
+.container {
+  width: 100%;
+}
+
+/** Image */
+.image-container {
+  display: inline-block;
+  height: 0;
+  width: 100%;
+  position: relative;
+
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include translate(-50%, -50%);
+    max-height: 100%;
+    max-width: 100%;
+  }
+
+  &.is-square {
+    padding-top: 100%;
+  }
+
+  &.is-rounded {
+    padding-top: 100%;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+
+  &.is-simple {
+    padding-top: 75%;
+  }
+
+  &.is-wide {
+    padding-top: 56.25%;
+  }
+
+  &.is-cover {
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      max-width: none;
+      max-height: none;
+
+      @supports(object-fit: cover) {
+        object-fit: cover;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.slider {
+  margin-top: $block-gutter;
+  margin-bottom: $block-gutter;
+}
+
+/** MENU commons */
+.menu-icon {
+  display: none;
+}
+
+.menu-marker {
+  border: none;
+  display: block;
+  padding: 0;
+  background-color: transparent;
+
+  &:hover,
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}

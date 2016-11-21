@@ -48,6 +48,9 @@ var invoke = function (env) {
     if (argv['spider']) {
       make.spider(_root, config)
     }
+    if (argv['starter']) {
+      make.starter(_root, config)
+    }
   }
 
   if (argv.stream || argv.download || argv.upload || argv.pull || argv.push) {

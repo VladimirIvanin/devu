@@ -13,8 +13,10 @@ var appRoot = require('app-root-path');
 var spiderPath = '';
 if (_.includes(appRoot.path, 'devu')) {
   spiderPath = path.normalize(appRoot.path + '/spider/src/spider.scss');
+  starterPath = path.normalize(appRoot.path + '/starter/');
 }else{
   spiderPath = path.normalize(appRoot.path + '/node_modules/devu/spider/src/spider.scss');
+  starterPath = path.normalize(appRoot.path + '/node_modules/devu/starter/');
 }
 
 var make = {};
@@ -46,6 +48,11 @@ make.spider = function (root, config) {
 
 }
 
+make.starter = function (root, config) {
+    gulp.src(starterPath + '*')
+      .pipe(sass().on('error', sass.logError))
+      .pipe(gulp.dest(path.normalize(root)))
+}
 make.template = function (names, root, config) {
   if (!names) {
     return;

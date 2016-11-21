@@ -1,0 +1,61 @@
+<script>
+  Site = _.merge(Site, {
+    cart_url: '{{ cart_url }}',
+    product_status: 'not-available',
+
+    template: '{{ template }}',
+
+    messages: {
+      "cartIsEmpty": "{{ messages.cart_is_empty }}",
+      "productAddedToCart": "{{ messages.product_added_to_cart }}",
+      "productRemovedFromCart": "{{ messages.product_removed_from_cart }}",
+      "productAddedToComparison": "{{ messages.product_added_to_comparison }}",
+      "productRemovedFromComparison": "{{ messages.product_removed_from_comparison }}",
+      "maximumNumberOfComparable": "{{ messages.maximum_number_of_comparable }}",
+      "comparisonIsEmpty": "{{ messages.comparison_is_empty }}",
+      "imageNotUploaded": "{{ messages.image_not_uploaded }}",
+
+      "button_submit": "{{ messages.button_submit }}",
+      "button_close": "{{ messages.button_close }}",
+    },
+  });
+
+  Products.setConfig({
+    filtered: false,
+    decimal: {
+      mmt: 0, // мм
+      cmt: 0, // см
+      dmt: 0, // дм
+      mtr: 0, // м
+      kmt: 0, // км
+      mtk: 0, // м2
+      dmk: 0, // дм2
+      mlt: 0, // мл
+      cmq: 0, // см3
+      ltr: 0, // л
+      dmq: 0, // дм3
+      mtq: 0, // м3
+      grm: 0, // г
+      kgm: 3, // кг
+      tne: 0, // т
+      hur: 0, // ч
+      nbb: 0, // боб
+      lef: 1, // л.
+      set: 0, // набор
+      npr: 0, // пар
+      npl: 0, // рул
+      nmp: 0, // упак
+      dzp: 0, // дюжина упак
+      cnp: 0, // 100 упак
+      pce: 0, // шт
+      cen: 0, // 100 шт
+      mil: 0, // тыс. шт
+      box: 0, // ящ
+      sct: 0, // секц
+      btl: 0 // флак
+    }
+  });
+</script>
+
+<script src="{{ 'plugins.js' | asset_url }}"></script>
+<script src="{{ 'theme.js' | asset_url }}"></script>
