@@ -49,8 +49,7 @@ make.spider = function (root, config) {
 }
 
 make.starter = function (root, config) {
-    gulp.src(starterPath + '*')
-      .pipe(sass().on('error', sass.logError))
+    gulp.src(starterPath + '*/*.*')
       .pipe(gulp.dest(path.normalize(root)))
 }
 make.template = function (names, root, config) {
