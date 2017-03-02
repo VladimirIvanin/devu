@@ -14,14 +14,6 @@
 
 > Команды запускать в корневой папке темы где ваши media, snippets, templates
 
-`devu --make --snippets logo,cart_widget,nav` - создаст сниппеты, `список обязательно без пробелов`
-
-`devu --make --snippets logo,cart_widget,nav --notstyle` - создаст сниппеты без стилей
-
-`devu --make --template index` - создаст шаблон
-
-`devu --make --spider` - создаст файл фреймворка spider.css в папке media
-
 `devu --stream` - запускает стрим файлов в insales-uploader
 
 `devu --download` - запускает скачивание темы
@@ -29,6 +21,15 @@
 `devu --push` - загрузка темы на сервер с полным обновлением файлов. 
 
 `devu --pull` - загрузка темы на компьютер. Перед началом загрузки, все локальные файлы удаляются
+
+`devu --make --spider` - создаст файл фреймворка spider.css в папке media
+
+`devu --make --snippets logo,cart_widget,nav` - создаст сниппеты, `список обязательно без пробелов`
+
+`devu --make --snippets logo,cart_widget,nav --notstyle` - создаст сниппеты без стилей
+
+`devu --make --template index` - создаст шаблон
+
 
 Пример файла настроек `devufile.json`
 ```
@@ -74,10 +75,9 @@
       "mc": "380px"
     },
     "grid":{
-      "breakpoint": "sm",
       "type": "flexbox",
       "columns": 12,
-      "gutter_width": "40px",
+      "gutter_width": "20px",
       "container_width": "1220px",
       "container_type": "stretchy"
     }
