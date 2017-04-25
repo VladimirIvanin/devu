@@ -16,7 +16,7 @@
     "gulp-replace": "^0.5.4",
     "gulp-sass": "^2.3.2",
     "gulp-sass-vars": "^1.0.2",
-    "insales-uploader": "^0.25.2",
+    "insales-uploader": "^0.26.0",
     "interpret": "^1.0.1",
     "json-pretty": "0.0.1",
     "liftoff": "^2.3.0",
