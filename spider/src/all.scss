@@ -1,0 +1,1222 @@
+// Colors
+$gray-base:                     #000;
+$gray-darker:                   lighten($gray-base, 13.5%);
+$gray-dark:                     lighten($gray-base, 20%)  ;
+$gray:                          lighten($gray-base, 33.5%);
+$gray-light:                    lighten($gray-base, 46.7%);
+$gray-lighter:                  lighten($gray-base, 93.5%);
+
+$primary-background:            #428bca;
+$primary-text:                  #ffffff;
+$primary-border:                #428bca;
+$primary-link:                  #428bca;
+$primary-link-hover:            darken(#428bca, 20%);
+
+$secondary-background:          #e6a022;
+$secondary-text:                #ffffff;
+$secondary-border:              #e6a022;
+$secondary-link:                #e6a022;
+$secondary-link-hover:          darken(#e6a022, 20%);
+
+$brand-success:                 #5cb85c;
+$brand-info:                    #5bc0de;
+$brand-warning:                 #f0ad4e;
+$brand-error:                   #d9534f;
+
+// Background
+$body-background-color:         #fff;
+$body-background-image:         false;
+$body-background-repeat:        no-repeat;
+$body-background-position:      top center;
+
+// Global textual link color.
+$link-color:                    $primary-link;
+$link-decoration:               underline;
+$link-hover-color:              $primary-link-hover;
+$link-hover-decoration:         none;
+
+// Fonts
+$font-size-base:                14px;
+$font-family-sans-serif:        "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-serif:             Georgia, "Times New Roman", Times, serif;
+$font-family-icon:              "FontAwesome";
+$line-height-base:              16px;
+
+// Headings
+$headings-font-family:          $font-family-serif;
+
+// Guters
+$gutter-vertical:               20px;
+$gutter-horizontal:             20px;
+$gutter-vertical-sm:            10px;
+$gutter-horizontal-sm:          10px;
+
+// Z-indexes
+$z-layers: (
+  dropdown: 1000
+);
+
+// Cursor
+$cursor-disabled:               not-allowed;
+
+// Transition
+$transition-delay:              .15s;
+$transition-animation:          ease;;
+
+// Colors
+$gray-base:                     #000 !default;
+$gray-darker:                   lighten($gray-base, 13.5%) !default;
+$gray-dark:                     lighten($gray-base, 20%)   !default;
+$gray:                          lighten($gray-base, 33.5%) !default;
+$gray-light:                    lighten($gray-base, 46.7%) !default;
+$gray-lighter:                  lighten($gray-base, 93.5%) !default;
+
+$primary-background:            #428bca !default;
+$primary-text:                  #ffffff !default;
+$primary-border:                #428bca !default;
+$primary-link:                  #428bca !default;
+$primary-link-hover:            darken(#428bca, 20%) !default;
+
+$secondary-background:          #e6a022 !default;
+$secondary-text:                #ffffff !default;
+$secondary-border:              #e6a022 !default;
+$secondary-link:                #e6a022 !default;
+$secondary-link-hover:          darken(#e6a022, 20%) !default;
+
+$brand-success:                 #5cb85c !default;
+$brand-info:                    #5bc0de !default;
+$brand-warning:                 #f0ad4e !default;
+$brand-error:                   #d9534f !default;
+
+// Background
+$body-background-color:         #fff !default;
+$body-background-image:         false !default;
+$body-background-repeat:        no-repeat !default;
+$body-background-position:      top center !default;
+
+// Global textual link color.
+$link-color:                    $primary-link !default;
+$link-decoration:               underline !default;
+$link-hover-color:              $primary-link-hover !default;
+$link-hover-decoration:         none !default;
+
+// Fonts
+$font-size-base:                14px !default;
+$font-family-sans-serif:        "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$font-family-serif:             Georgia, "Times New Roman", Times, serif !default;
+$font-family-icon:              "FontAwesome" !default;
+$line-height-base:              16px !default;
+
+// Headings
+$headings-font-family:          $font-family-serif !default;
+
+// Guters
+$gutter-vertical:               20px;
+$gutter-horizontal:             20px;
+$gutter-vertical-sm:            10px;
+$gutter-horizontal-sm:          10px;
+
+// Z-indexes
+$z-layers: (
+  dropdown: 1000
+) !default;
+
+// Cursor
+$cursor-disabled:               not-allowed !default;
+
+// Transition
+$transition-delay:              .15s !default;
+$transition-animation:          ease !default;;
+
+// Forms
+@mixin form() {
+
+  fieldset {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    min-width: 0;
+  }
+
+  legend {
+    display: block;
+    width: 100%;
+    padding: 0;
+    font-size: ($font-size-base * 1.5);
+    line-height: inherit;
+    color: $primary-text;
+    border: 0;
+    border-bottom: 1px solid $gray-lighter;
+  }
+
+  label {
+    display: inline-block;
+    max-width: 100%;
+  }
+
+  input[type="search"] {
+    -webkit-appearance: none;
+  }
+}
+
+// Input
+@mixin input() {
+  display: inline-block;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  background-image: none;
+  vertical-align: top;
+
+  @include placeholder;
+
+  &::-ms-expand {
+    border: 0;
+    background-color: transparent;
+  }
+
+  &[disabled],
+  &[readonly],
+  fieldset[disabled] & {
+    opacity: 1;
+  }
+
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: $cursor-disabled;
+  }
+
+  max-width: 100%;
+}
+
+// Select
+@mixin select {
+  @include input();
+}
+
+// Button
+@mixin button() {
+  border-radius: 0;
+  border: none;
+  background-color: transparent;
+  box-shadow: none;
+  cursor: pointer;
+  display: inline-block;
+  max-width: 100%;
+  text-align: center;
+  touch-action: manipulation;
+  text-decoration: none;
+  vertical-align: top;
+  white-space: nowrap;
+
+  &:active {
+    outline: 0;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: $cursor-disabled;
+  }
+}
+
+// Textareas
+@mixin textarea() {
+  @include input();
+}
+
+// Tables
+@mixin table() {
+  border-collapse: collapse;
+
+  th {
+    text-align: left;
+  }
+
+  table col[class*="cell-"] {
+    position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
+    float: none;
+    display: table-column;
+  }
+
+  table {
+    td,
+    th {
+      &[class*="cell-"] {
+        position: static; // Prevent border hiding in Firefox and IE9-11 (see https://github.com/twbs/bootstrap/issues/11623)
+        float: none;
+        display: table-cell;
+      }
+    }
+  }
+}
+
+// Unstyled ul/ol list
+@mixin list-unstyled() {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// List
+@mixin list($className: 'list') {
+  @include list-unstyled();
+
+  > .#{$className}-item {
+    display: inline-block;
+    position: relative;
+  }
+}
+
+// List table
+@mixin list-table($className: 'list') {
+  @include list-unstyled();
+  display: table;
+  width: 100%;
+
+  > .#{$className}-item {
+    display: table-cell;
+  }
+}
+
+// List justified
+@mixin list-justified($className: 'list') {
+  @include list-unstyled();
+  font-size: 0;
+  line-height: 0;
+  text-align: justify;
+  width: 100%;
+
+  &:after {
+    content: "";
+    display: inline-block;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    width: 100%;
+  }
+}
+
+// List horizontal
+@mixin list-vertical($className: 'list') {
+  @include list-unstyled();
+
+  > .#{$className}-item {
+    display: inline-block;
+    width: 100%;
+  }
+}
+
+// Link decoration - color, color on hover and text-decoration on hover
+@mixin link-decor(
+  $color: $link-color,
+  $decoration: $link-decoration,
+  $hover-color: $link-hover-color,
+  $hover-decoration: $link-hover-decoration
+) {
+  color: $color;
+  text-decoration: $link-decoration;
+
+  &:hover {
+    color: $hover-color;
+    text-decoration: $decoration;
+  }
+}
+// Flex container
+@mixin make-flex-container($container-width: grid(container-width), $container-type: grid(container-type)) {
+  .container {
+    @include gutter();
+    margin-left: auto;
+    margin-right: auto;
+
+    @if ($container-width != 'auto') {
+
+      @if ($container-type == 'static') {
+        width: $container-width;
+      } @else {
+        max-width: $container-width;
+      }
+    }
+  }
+}
+
+// Flex rows and cols
+@mixin make-flex-row() {
+
+  .row {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    @include gutter(-(grid(gutter-width)), 'outside');
+
+    &-reverse {
+      display: flex;
+      flex: 1 1 auto;
+      flex-direction: row-reverse;
+      flex-wrap: wrap;
+      @include gutter(-(grid(gutter-width)), 'outside');
+    }
+  }
+}
+
+@mixin make-flex-col() {
+
+  .col {
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: column;
+    flex-wrap: wrap;
+    @include gutter(-(grid(gutter-width)), 'outside');
+
+    &-reverse {
+      display: flex;
+      flex: 0 1 auto;
+      flex-direction: column-reverse;
+      flex-wrap: wrap;
+      @include gutter(-(grid(gutter-width)), 'outside');
+    }
+  }
+}
+
+// Flex cell
+@mixin utility-flex-cell($breakpoint-name: '', $postfix: '', $columns: grid(columns)) {
+
+  @if ($breakpoint-name != '') {
+    $breakpoint-name: '-'+$breakpoint-name;
+  }
+
+  @if ($postfix != '') {
+    $postfix: '-'+$postfix;
+  }
+
+  @for $index from 1 through $columns {
+    .cell-#{$index}#{$breakpoint-name}#{$postfix} {
+      max-width: span($index);
+      flex-basis: span($index);
+    }
+  }
+  .cell-fifth#{$breakpoint-name}#{$postfix} {
+    max-width: 20%;
+    flex-basis: 20%;
+  }
+}
+
+@mixin make-flex-cell-preset() {
+  [class*='cell-'] {
+    @include gutter();
+  }
+}
+
+@mixin make-flex-cell($breakpoints: $grid-breakpoints, $columns: grid(columns)) {
+
+  @include utility-flex-cell();
+
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+
+    @if ($breakpoint-name != breakpoint-last('name')) {
+
+      @include media-max($breakpoint-value) {
+        @include utility-flex-cell($breakpoint-name);
+      }
+
+      @include media-between(breakpoint-next($breakpoint-name, 'name'), $breakpoint-value) {
+        @include utility-flex-cell($breakpoint-name, 'only');
+      }
+
+    } @else if ($breakpoint-name == breakpoint-last('name')) {
+
+      @include media-max($breakpoint-value) {
+        @include utility-flex-cell($breakpoint-name);
+      }
+    }
+  }
+}
+
+// Flex aligns
+@mixin utility-flex-aligns($breakpoint-name: '', $postfix: '', $columns: grid(columns)) {
+
+  @if ($breakpoint-name != '') {
+    $breakpoint-name: '-'+$breakpoint-name;
+  }
+
+  @if ($postfix != '') {
+    $postfix: '-'+$postfix;
+  }
+
+  .flex-start#{$breakpoint-name}#{$postfix} {
+    justify-content: flex-start;
+    text-align: start;
+  }
+
+  .flex-center#{$breakpoint-name}#{$postfix} {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .flex-end#{$breakpoint-name}#{$postfix} {
+    justify-content: flex-end;
+    text-align: end;
+  }
+
+  .flex-top#{$breakpoint-name}#{$postfix} {
+    align-items: flex-start;
+  }
+
+  .flex-middle#{$breakpoint-name}#{$postfix} {
+    align-items: center;
+  }
+
+  .flex-bottom#{$breakpoint-name}#{$postfix} {
+    align-items: flex-end;
+  }
+
+  .flex-around#{$breakpoint-name}#{$postfix} {
+    justify-content: space-around;
+  }
+
+  .flex-between#{$breakpoint-name}#{$postfix} {
+    justify-content: space-between;
+  }
+
+  .flex-first#{$breakpoint-name}#{$postfix} {
+    order: -1;
+  }
+
+  .flex-last#{$breakpoint-name}#{$postfix} {
+    order: 1;
+  }
+}
+
+@mixin make-flex-aligns($breakpoints: $grid-breakpoints, $columns: grid(columns)) {
+
+  @include utility-flex-aligns();
+
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+
+    @if ($breakpoint-name != breakpoint-last('name')) {
+
+      @include media-max($breakpoint-value) {
+        @include utility-flex-aligns($breakpoint-name);
+      }
+
+      @include media-between(breakpoint-next($breakpoint-name, 'name'), $breakpoint-value) {
+        @include utility-flex-aligns($breakpoint-name, 'only');
+      }
+
+    } @else if ($breakpoint-name == breakpoint-last('name')) {
+
+      @include media-max($breakpoint-value) {
+        @include utility-flex-aligns($breakpoint-name);
+      }
+    }
+  }
+}
+// Float container
+@mixin make-float-container($container-width: grid(container-width), $container-type: grid(container-type)) {
+  .container {
+    @include gutter();
+    margin-left: auto;
+    margin-right: auto;
+
+    @if ($container-width != 'auto') {
+
+      @if ($container-type == 'static') {
+        width: $container-width;
+      } @else {
+        max-width: $container-width;
+      }
+    }
+  }
+}
+
+// Float row
+@mixin make-float-row() {
+  .row {
+    @include gutter(-(grid(gutter-width)), 'outside');
+    @include clearfix();
+  }
+}
+
+// Float cell
+@mixin utility-float-cell($breakpoint-name: '', $postfix: '', $columns: grid(columns)) {
+
+  @if ($breakpoint-name != '') {
+    $breakpoint-name: '-'+$breakpoint-name;
+  }
+
+  @if ($postfix != '') {
+    $postfix: '-'+$postfix;
+  }
+
+  @for $index from 1 through $columns {
+    .cell-#{$index}#{$breakpoint-name}#{$postfix} {
+      width: span($index);
+    }
+  }
+  .cell-fifth#{$breakpoint-name}#{$postfix} {
+    width: 20%;
+  }
+}
+
+@mixin make-float-cell-preset(){
+  [class*='cell-'] {
+    float: left;
+    @include gutter();
+  }
+}
+
+@mixin make-float-cell($breakpoints: $grid-breakpoints, $columns: grid(columns)) {
+
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+
+    @if ($breakpoint-name == breakpoint-last('name')) {
+
+      @include utility-float-cell($breakpoint-name);
+
+    } @else if ($breakpoint-name != breakpoint-first('name') and $breakpoint-name != breakpoint-last('name')) {
+
+      @include media-max($breakpoint-value) {
+        @include utility-float-cell($breakpoint-name);
+      }
+
+      @include media-between(breakpoint-next($breakpoint-name, 'name'), $breakpoint-value) {
+        @include utility-float-cell($breakpoint-name, 'only');
+      }
+
+    } @else if ($breakpoint-name == breakpoint-first('name')) {
+
+      @include media-max($breakpoint-value) {
+        @include utility-float-cell($breakpoint-name);
+      }
+    }
+  }
+}
+// Set maring from left
+@mixin push($index, $columns: grid(columns)) {
+  margin-left: $index / $columns * 100%;
+}
+
+// Set negative maring from left
+@mixin pull($index, $columns: grid(columns)) {
+  margin-left: -$index / $columns * 100%;
+}
+
+// Set maring from right
+@mixin post($index, $columns: grid(columns)) {
+  margin-right: $index / $columns * 100%;
+}
+// Visibility
+@mixin utility-visiblity($breakpoint-name: '', $postfix: '') {
+
+  @if ($breakpoint-name != '') {
+    $breakpoint-name: '-'+$breakpoint-name;
+  }
+
+  @if ($postfix != '') {
+    $postfix: '-'+$postfix;
+  }
+
+  .hide#{$breakpoint-name}#{$postfix} {
+    display: none !important;
+  }
+
+  .show#{$breakpoint-name}#{$postfix} {
+    display: block !important;
+  }
+  .show-flex#{$breakpoint-name}#{$postfix} {
+    display: flex !important;
+  }
+  .show-inline#{$breakpoint-name}#{$postfix} {
+    display: inline !important;
+  }
+  .show-inline-block#{$breakpoint-name}#{$postfix} {
+    display: inline-block !important;
+  }
+}
+
+@mixin make-visibility( $breakpoints: $grid-breakpoints ) {
+
+  @include utility-visiblity();
+
+  @include media-min(){
+    @include utility-visiblity('desktop');
+  }
+
+  @include media-max(){
+    @include utility-visiblity('mobile');
+  }
+
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+
+    @if ($breakpoint-name != breakpoint-last('name')) {
+
+      @include media-max($breakpoint-value) {
+        @include utility-visiblity($breakpoint-name);
+      }
+
+      @include media-between(breakpoint-next($breakpoint-name, 'name'), $breakpoint-value) {
+        @include utility-visiblity($breakpoint-name, 'only');
+      }
+
+    } @else if ($breakpoint-name == breakpoint-last('name')) {
+
+      @include media-max($breakpoint-value) {
+        @include utility-visiblity($breakpoint-name);
+      }
+    }
+  }
+}
+// Grid indents
+@mixin utility-grid-indents($breakpoint-name: '', $postfix: '', $columns: grid(columns) ) {
+
+  @if ($breakpoint-name != '') {
+    $breakpoint-name: '-'+$breakpoint-name;
+  }
+
+  @if ($postfix != '') {
+    $postfix: '-'+$postfix;
+  }
+
+  @for $index from 0 through $columns {
+    .push-#{$index}#{$breakpoint-name}#{$postfix} {
+      @include push($index);
+    }
+  }
+  @for $index from 0 through $columns {
+    .pull-#{$index}#{$breakpoint-name}#{$postfix} {
+      @include pull($index);
+    }
+  }
+  @for $index from 0 through $columns {
+    .post-#{$index}#{$breakpoint-name}#{$postfix} {
+      @include post($index);
+    }
+  }
+
+  .push-fifth#{$breakpoint-name}#{$postfix} {
+    margin-left: 20%;
+  }
+  .pull-fifth#{$breakpoint-name}#{$postfix} {
+    margin-left: -20%;
+  }
+  .post-fifth#{$breakpoint-name}#{$postfix} {
+    margin-right: 20%;
+  }
+  .pull-left#{$breakpoint-name}#{$postfix} {
+    float: left;
+  }
+  .pull-right#{$breakpoint-name}#{$postfix} {
+    float: right;
+  }
+
+  .clearfix#{$breakpoint-name}#{$postfix} {
+    @include clearfix();
+  }
+}
+
+@mixin make-grid-indents( $breakpoints: $grid-breakpoints ) {
+
+  @include utility-grid-indents();
+
+  @include media-min(){
+    @include utility-grid-indents('desktop');
+  }
+
+  @include media-max(){
+    @include utility-grid-indents('mobile');
+  }
+
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+
+    @if ($breakpoint-name != breakpoint-last('name')) {
+
+      @include media-max($breakpoint-value) {
+        @include utility-grid-indents($breakpoint-name);
+      }
+
+      @include media-between(breakpoint-next($breakpoint-name, 'name'), $breakpoint-value) {
+        @include utility-grid-indents($breakpoint-name, 'only');
+      }
+
+    } @else if ($breakpoint-name == breakpoint-last('name')) {
+
+      @include media-max($breakpoint-value) {
+        @include utility-grid-indents($breakpoint-name);
+      }
+    }
+  }
+}
+
+// Get setting from grid settings
+@function grid($param) {
+
+  @if not map-has-key($grid, $param) {
+    @warn "No param found for `#{$param}` in $grid settings. Property omitted.";
+  }
+
+  @return map-get($grid, $param);
+}
+
+// Set column width
+@function span($index, $columns: grid(columns), $container-width: grid(container-width)) {
+  @return $index / $columns * 100%;
+}
+
+// Get next breakpoint by name of current
+@function breakpoint-next($name, $type: 'value', $breakpoints: $grid-breakpoints, $breakpoints-names: map-keys($breakpoints), $breakpoints-values: map-values($breakpoints) ) {
+  $result: 0;
+  $i: index($breakpoints-names, $name);
+  @if ($type == 'name') {
+    @if ($i < length($breakpoints)) {
+      $result: nth($breakpoints-names, $i + 1)
+    }
+  } @else if ($type == 'value') {
+    @if ($i < length($breakpoints)) {
+      $result: nth($breakpoints-values, $i + 1)
+    }
+  }
+  @if ($result == 0 or $result == '') {
+    @return "No breakpoint found for `#{$name}` in $breacpoints map. Property omitted.";
+  } @else {
+    @return $result;
+  }
+}
+
+// Get prev breakpoint by name of current
+@function breakpoint-prev($name, $type: 'value', $breakpoints: $grid-breakpoints, $breakpoints-names: map-keys($breakpoints), $breakpoints-values: map-values($breakpoints) ) {
+  $result: 0;
+  $i: index($breakpoints-names, $name);
+  @if ($type == 'name') {
+    @if ($i <= length($breakpoints) and $i > 1) {
+      $result: nth($breakpoints-names, $i - 1)
+    }
+  } @else if ($type == 'value') {
+    @if ($i <= length($breakpoints) and $i > 1) {
+      $result: nth($breakpoints-values, $i - 1)
+    }
+  }
+  @if ($result == 0 or $result == '') {
+    @return "No breakpoint found for `#{$name}` in $breacpoints map. Property omitted.";
+  } @else {
+    @return $result;
+  }
+}
+
+// Get last breakpoint from map
+@function breakpoint-first($type: 'value', $breakpoints: $grid-breakpoints, $breakpoints-names: map-keys($breakpoints), $breakpoint-values: map-values($breakpoints) ) {
+  @if ($type == 'name') {
+    @return nth($breakpoints-names, 1);
+  } @else if ($type == 'value') {
+    @return nth($breakpoint-values, 1);
+  }
+}
+
+// Get first breakpoint from map
+@function breakpoint-last($type: 'value', $breakpoints: $grid-breakpoints, $breakpoints-names: map-keys($breakpoints), $breakpoint-values: map-values($breakpoints) ) {
+  @if ($type == 'name') {
+    @return nth($breakpoints-names, length($breakpoints));
+  } @else if ($type == 'value') {
+    @return nth($breakpoint-values, length($breakpoints));
+  }
+}
+
+// Clearfix
+@mixin clearfix {
+
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+}
+
+// Set gutters
+@mixin gutter ($gutter: grid(gutter-width), $type: 'inside') {
+  @if ($type == 'inside') {
+    padding-left: $gutter / 2;
+    padding-right: $gutter / 2;
+  } @else if($type == 'outside') {
+    margin-left: $gutter / 2;
+    margin-right: $gutter / 2;
+  }
+}
+
+// Element size - width and height
+@mixin size($width: 0, $height: 0) {
+  @if ($width != 0 and $height == 0) {
+    $height: $width;
+  }
+  height: $height;
+  width: $width;
+}
+
+// Placeholder text
+@mixin placeholder($color: #ccc ) {
+  // Firefox
+  &::-moz-placeholder {
+    color: $color;
+    opacity: 1; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+  // Internet Explorer 10+
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+  // Safari and Chrome
+
+  &:focus {
+
+    &::-moz-placeholder {
+      color: $color;
+      opacity: 0; // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526
+    }
+    &:-ms-input-placeholder {
+      color: $color;
+      opacity: 0;
+    }
+    // Internet Explorer 10+
+    &::-webkit-input-placeholder {
+      color: $color;
+      opacity: 0;
+    }
+    // Safari and Chrome
+  }
+}
+
+// Vertical align for inline elements
+@mixin vertical-align-middle() {
+
+  & > * {
+    vertical-align: middle;
+  }
+
+  &:after {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    overflow: hidden;
+    vertical-align: middle;
+    width: 0;
+  }
+}
+
+// Overlay position
+@mixin position-overlay ( $value: 0, $position: absolute ){
+  position: $position;
+  top: $value;
+  right: $value;
+  bottom: $value;
+  left: $value;
+}
+
+// Position center
+@mixin position-center ( $coordinates: 50% 50%, $position: absolute ) {
+
+  $top: nth( $coordinates, 1);
+  $left: nth( $coordinates, 2);
+
+  position: $position;
+  transform: translate( -$top, -$left );
+  top: $top;
+  left: $left;
+}
+
+// Transition
+@mixin transition($properties, $delay: $transition-delay, $animation: $transition-animation) {
+
+  $result: null;
+
+  @each $property in $properties {
+    $result: join($result, #{$delay $animation $property}, comma);
+  }
+
+  transition: $result;
+}
+
+// @media screen and min-width
+@mixin media-min($breakpoint: grid(breakpoint), $breakpoints: $grid-breakpoints) {
+
+  $breakpoint-value: null;
+
+  @if (map-get($breakpoints, $breakpoint)) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint) + 1;
+  } @else {
+    $breakpoint-value: $breakpoint;
+  }
+
+  @media screen and (min-width: $breakpoint-value) {
+    @content;
+  }
+}
+
+// @media screen and max-width
+@mixin media-max($breakpoint: grid(breakpoint), $breakpoints: $grid-breakpoints) {
+
+  $breakpoint-value: null;
+
+  @if (map-get($breakpoints, $breakpoint)) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+  } @else {
+    $breakpoint-value: $breakpoint;
+  }
+
+  @media screen and (max-width: $breakpoint-value) {
+    @content;
+  }
+}
+
+// @media screen and min-width and max-width
+@mixin media-between($breakpoint-min, $breakpoint-max, $breakpoints: $grid-breakpoints) {
+
+  $breakpoint-value-min: null;
+  $breakpoint-value-max: null;
+
+  @if (map-get($breakpoints, $breakpoint-min)) {
+    $breakpoint-value-min: map-get($breakpoints, $breakpoint-min) + 1;
+  } @else {
+    $breakpoint-value-min: $breakpoint-min + 1;
+  }
+
+  @if (map-get($breakpoints, $breakpoint-max)) {
+    $breakpoint-value-max: map-get($breakpoints, $breakpoint-max);
+  } @else {
+    $breakpoint-value-max: $breakpoint-max;
+  }
+
+  @media screen and (min-width: $breakpoint-value-min) and (max-width: $breakpoint-value-max) {
+    @content;
+  }
+}
+// Text align
+@mixin utility-aligns($breakpoint-name: '', $postfix: '') {
+
+  @if ($breakpoint-name != '') {
+    $breakpoint-name: '-'+$breakpoint-name;
+  }
+
+  @if ($postfix != '') {
+    $postfix: '-'+$postfix;
+  }
+
+  .text-right#{$breakpoint-name}#{$postfix} {
+    text-align: right;
+  }
+  .text-left#{$breakpoint-name}#{$postfix} {
+    text-align: left;
+  }
+  .text-center#{$breakpoint-name}#{$postfix} {
+    text-align: center;
+  }
+  .text-justify#{$breakpoint-name}#{$postfix} {
+    text-align: justify;
+  }
+}
+
+@mixin make-aligns( $breakpoints: $grid-breakpoints ) {
+
+  @include utility-aligns();
+
+  @include media-min(){
+    @include utility-aligns('desktop');
+  }
+
+  @include media-max(){
+    @include utility-aligns('mobile');
+  }
+
+  @each $breakpoint-name, $breakpoint-value in $breakpoints {
+
+    @if ($breakpoint-name != breakpoint-last('name')) {
+
+      @include media-max($breakpoint-value) {
+        @include utility-aligns($breakpoint-name);
+      }
+
+      @include media-between(breakpoint-next($breakpoint-name, 'name'), $breakpoint-value) {
+        @include utility-aligns($breakpoint-name, 'only');
+      }
+
+    } @else if ($breakpoint-name == breakpoint-last('name')) {
+
+      @include media-max($breakpoint-value) {
+        @include utility-aligns($breakpoint-name);
+      }
+    }
+  }
+}
+// Reset the box-sizing
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+// Make viewport responsive
+@at-root {
+  @-ms-viewport { width: device-width; }
+}
+
+// Reset HTML, body, and more
+html {
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+[tabindex="-1"]:focus {
+  outline: none !important;
+}
+
+// Abbreviations and acronyms
+abbr[title],
+abbr[data-original-title] {
+  cursor: help;
+}
+
+// Links
+a:not([href]):not([tabindex]) {
+  color: inherit;
+  text-decoration: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+// Code
+pre {
+  overflow: auto;
+}
+
+// Images
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+// iOS "clickable elements" fix for role="button"
+[role="button"] {
+  cursor: pointer;
+}
+
+
+// Avoid 300ms click delay on touch devices that support the `touch-action` CSS property.
+a,
+area,
+button,
+[role="button"],
+input,
+label,
+select,
+summary,
+textarea {
+  touch-action: manipulation;
+}
+
+// Tables
+table {
+  border-collapse: collapse;
+}
+
+caption {
+  text-align: left;
+  caption-side: bottom;
+}
+
+th {
+  text-align: left;
+}
+
+// Forms
+label {
+  display: inline-block;
+}
+
+input,
+button,
+select,
+textarea {
+  line-height: inherit;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+
+  &:disabled {
+    cursor: $cursor-disabled;
+  }
+}
+
+
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="month"] {
+  -webkit-appearance: listbox;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input[type="search"] {
+  -webkit-appearance: none;
+}
+
+output {
+  display: inline-block;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+// Helpers
+@include make-aligns();
+
+@include make-visibility();
+
+@include make-grid-indents();
+
+// Grid
+@if (grid(type) == 'flexbox') {
+
+  @include make-flex-container();
+
+  @include make-flex-row();
+
+  @include make-flex-col();
+
+  @include make-flex-cell-preset();
+
+  @include make-flex-cell();
+
+  @include make-flex-aligns();
+
+} @else if (grid(type) == 'float') {
+
+  @include make-float-container();
+
+  @include make-float-row();
+
+  @include make-float-cell-preset();
+
+  @include make-float-cell();
+
+}
