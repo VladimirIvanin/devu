@@ -12,10 +12,10 @@
     "app-root-path": "^2.0.1",
     "create-file": "^1.0.1",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-replace": "^0.5.4",
-    "gulp-sass": "^2.3.2",
-    "gulp-sass-vars": "^1.0.2",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-replace": "^0.6.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-sass-vars": "^1.0.3",
     "insales-uploader": "^0.27.1",
     "interpret": "^1.0.1",
     "json-pretty": "0.0.1",
@@ -23,8 +23,8 @@
     "lodash": "^4.17.0",
     "minimist": "^1.2.0",
     "rootbeer": "^1.0.5",
-    "v8flags": "^2.0.11",
-    "write": "^0.3.2"
+    "v8flags": "^3.0.1",
+    "write": "^1.0.3"
   },
   "description": "Утилиты для разработки тем",
   "devDependencies": {},
@@ -43,5 +43,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "0.9.4"
+  "version": "0.9.5"
 }
