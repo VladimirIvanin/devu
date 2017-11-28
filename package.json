@@ -16,7 +16,7 @@
     "gulp-replace": "^0.6.1",
     "gulp-sass": "^3.1.0",
     "gulp-sass-vars": "^1.0.3",
-    "insales-uploader": "^0.27.1",
+    "insales-uploader": "^0.27.2",
     "interpret": "^1.0.1",
     "json-pretty": "0.0.1",
     "liftoff": "^2.3.0",
@@ -43,5 +43,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "0.9.5"
+  "version": "0.9.6"
 }
