@@ -1,10 +1,6 @@
 #!/usr/bin/env node
 var Liftoff = require('liftoff');
-var make = require('../make/make.js');
 var argv = require('minimist')(process.argv.slice(2));
-var _ = require('lodash');
-var fs = require('fs');
-var path = require('path');
 var InsalesUploader = require('insales-uploader');
 
 var devu = new Liftoff({
@@ -35,30 +31,32 @@ var invoke = function (env) {
   if (env.configPath) {
     config = require(env.configPath);
   }
-  config['notstyle'] = argv.notstyle
-  config = patchConfig(config);
   var _root = env.cwd;
-  if (argv['make']) {
-    if (argv['template']) {
-      make.template(argv['template'], _root, config)
-    }
-    if (argv['snippets']) {
-      make.snippets(argv['snippets'].split(','), _root, config)
-    }
-    if (argv['spider']) {
-      make.spider(_root, config)
-    }
-    if (argv['starter']) {
-      make.starter(_root, config)
-    }
-  }
 
-  if (argv.stream || argv.download || argv.upload || argv.pull || argv.push) {
+  if (argv.stream || argv.download || argv.upload || argv.pull || argv.push || argv.start) {
     if (!config.uploader) {
       console.log('Нет настроек для insales-uploader')
       return;
     }
+    if (config.uploader.usePostCss) {
+      if (!config.uploader.tools) {
+        config.uploader.tools = {};
+      }
+
+      config.uploader.tools.postCssPlugins = [
+        require('postcss-nested')(),
+        require('postcss-flexbugs-fixes')(),
+        require('postcss-discard-duplicates')(),
+        require('postcss-discard-empty')(),
+        require('postcss-ordered-values')(),
+        require('postcss-combine-duplicated-selectors')(),
+        require('css-mqpacker')()
+      ]
+    }
     var uploader = new InsalesUploader(config.uploader);
+    if (argv.start) {
+      uploader.start()
+    }
     if (argv.stream) {
       uploader.stream()
     }
@@ -83,43 +81,3 @@ devu.launch({
   require: argv.require,
   completion: argv.completion
 }, invoke);
-
-function patchConfig(config) {
-  var options = {
-    debugMode: false,
-    scss:{
-      makeSnippetStyle: true,
-      extension: "scss",
-      usePrefix: true,
-      prefix: "_",
-      import: false,
-      importFile: "style.scss",
-      directive: "@import"
-    },
-    spider: {
-      breakpoints: {
-        lg: "1200px",   // large
-        md: "1024px",   // medium
-        sm: "768px",    // small
-        xs: "480px",    // extra small
-        mc: "380px"     // micro
-      }
-      ,
-      grid: {
-        breakpoint:       "sm",
-        type:             "flexbox",  // flexbox , float
-        columns:          12,       // number of columns
-        gutter_width:     "40px",     // number in px / em / rem / etc
-        container_width:  "1220px",   // number or 'auto',
-        container_type:   "stretchy", // static or stretchy
-      }
-    }
-  }
-  var result = _.merge(options, config);
-  if (result.scss.usePrefix) {
-    result.scss.prefix = "_"
-  }else{
-    result.scss.prefix = ""
-  }
-  return result;
-}

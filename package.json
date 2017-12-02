@@ -9,24 +9,18 @@
     "url": "https://github.com/VladimirIvanin/devu/issues"
   },
   "dependencies": {
-    "app-root-path": "^2.0.1",
-    "create-file": "^1.0.1",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^4.0.0",
-    "gulp-replace": "^0.6.1",
-    "gulp-sass": "^3.1.0",
-    "gulp-sass-vars": "^1.0.3",
-    "insales-uploader": "^0.27.2",
-    "interpret": "^1.0.1",
-    "json-pretty": "0.0.1",
+    "css-mqpacker": "^6.0.1",
+    "insales-uploader": "^0.27.3",
     "liftoff": "^2.3.0",
-    "lodash": "^4.17.0",
-    "minimist": "^1.2.0",
-    "rootbeer": "^1.0.5",
-    "v8flags": "^3.0.1",
-    "write": "^1.0.3"
+    "postcss-combine-duplicated-selectors": "^3.1.3",
+    "postcss-discard-duplicates": "^2.1.0",
+    "postcss-discard-empty": "^2.1.0",
+    "postcss-flexbugs-fixes": "^3.2.0",
+    "postcss-nested": "^2.1.2",
+    "postcss-ordered-values": "^2.2.3",
+    "v8flags": "^3.0.1"
   },
-  "description": "Утилиты для разработки тем",
+  "description": "Запуск insales-uploader",
   "devDependencies": {},
   "directories": {},
   "engines": {
@@ -43,5 +37,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "0.9.6"
+  "version": "0.10.0"
 }

@@ -18,6 +18,8 @@
 
 > Команды запускать в корневой папке темы где ваши media, snippets, templates
 
+`devu --start` - запускает скачивание темы, затем стрим файлов в insales-uploader
+
 `devu --stream` - запускает стрим файлов в insales-uploader
 
 `devu --download` - запускает скачивание темы
@@ -26,13 +28,12 @@
 
 `devu --pull` - загрузка темы на компьютер. Перед началом загрузки, все локальные файлы удаляются
 
-`devu --make --spider` - создаст файл фреймворка spider.css в папке media
 
-
-Пример файла настроек `devufile.json`
+## Пример файла настроек `devufile.json`
 ```
 {
   "uploader": {
+    "usePostCss": false,
     "account": {
       "id": "4054as6d540a6sd4064065406",
       "token": "012494098076131064684066",
@@ -55,22 +56,6 @@
         "reloadDelay": 2000
       }
     }
-  },
-  "spider":{
-    "breakpoints": {
-      "lg": "1200px",
-      "md": "1024px",
-      "sm": "768px",
-      "xs": "480px",
-      "mc": "380px"
-    },
-    "grid":{
-      "type": "flexbox",
-      "columns": 12,
-      "gutter_width": "20px",
-      "container_width": "1220px",
-      "container_type": "stretchy"
-    }
   }
 }
 ```
@@ -80,6 +65,4 @@
 
 Настройки для [insales-uploader](https://github.com/VladimirIvanin/insales-uploader)
 
-### spider
-
-Список настроек фреймворка spider.css
+В `devu` предустановлены postcss плагины, для их активации нужно прописать свойство `"usePostCss": true`.
