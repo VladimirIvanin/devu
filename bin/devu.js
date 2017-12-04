@@ -50,7 +50,8 @@ var invoke = function (env) {
         require('postcss-discard-empty')(),
         require('postcss-ordered-values')(),
         require('postcss-combine-duplicated-selectors')(),
-        require('css-mqpacker')()
+        require('css-mqpacker')(),
+        require('stylefmt')()
       ]
     }
     var uploader = new InsalesUploader(config.uploader);
