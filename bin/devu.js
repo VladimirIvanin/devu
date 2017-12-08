@@ -33,7 +33,7 @@ var invoke = function (env) {
     return;
   }
 
-  if (config.uploader.usePostCss) {
+  if (config.uploader.usePostCss || argv.css) {
     if (!config.uploader.tools) {
       config.uploader.tools = {};
     }
