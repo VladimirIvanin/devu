@@ -17,6 +17,7 @@
     "postcss-flexbugs-fixes": "^3.2.0",
     "postcss-nested": "^2.1.2",
     "postcss-ordered-values": "^2.2.3",
+    "promise": "^8.0.1",
     "stylefmt": "^6.0.0",
     "v8flags": "^3.0.1"
   },
@@ -37,5 +38,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "0.10.3"
+  "version": "0.11.0"
 }
