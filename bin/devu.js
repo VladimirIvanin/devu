@@ -81,5 +81,6 @@ var alias = {
   upload: 'upload',
   pull: 'pullTheme',
   assets: 'initAssets',
+  open: 'openBrowser',
   push: 'pushTheme'
 }
