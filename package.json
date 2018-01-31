@@ -9,13 +9,13 @@
     "url": "https://github.com/VladimirIvanin/devu/issues"
   },
   "dependencies": {
-    "insales-uploader": "^0.27.5",
+    "insales-uploader": "^0.27.6",
     "liftoff": "^2.5.0",
-    "postcss-combine-duplicated-selectors": "^3.1.4",
+    "postcss-combine-duplicated-selectors": "^4.0.0",
     "postcss-discard-duplicates": "^2.1.0",
     "postcss-discard-empty": "^2.1.0",
-    "postcss-flexbugs-fixes": "^3.2.0",
-    "postcss-nested": "^2.1.2",
+    "postcss-flexbugs-fixes": "^3.3.0",
+    "postcss-nested": "^3.0.0",
     "postcss-ordered-values": "^2.2.3",
     "promise": "^8.0.1",
     "stylefmt": "^6.0.0",
@@ -38,5 +38,5 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "version": "0.11.2"
+  "version": "0.11.3"
 }
